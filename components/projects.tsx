@@ -89,11 +89,11 @@ export default function Projects() {
             const y = e.clientY - rect.top - rect.height / 2
 
             gsap.to(card, {
-              x: x * 0.1,
-              y: y * 0.1,
-              rotationX: y * 0.05,
-              rotationY: x * 0.05,
-              duration: 0.3,
+              x: x * 0.05,
+              y: y * 0.05,
+              rotationX: y * 0.02,
+              rotationY: x * 0.02,
+              duration: 0.25,
               ease: "power2.out",
             })
           }
@@ -215,13 +215,13 @@ export default function Projects() {
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="overflow-hidden hover:shadow-2xl transition-all duration-500 group border-2 border-transparent hover:border-primary/20 bg-card/80 backdrop-blur-sm"
+              className="overflow-hidden hover:shadow-lg transition-all duration-300 group border-2 border-transparent hover:border-primary/10 bg-card/70 backdrop-blur-sm py-4"
             >
               <div className="relative overflow-hidden">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full aspect-[16/10] object-cover transition-all duration-500 group-hover:scale-110"
+                  className="w-full aspect-[16/10] object-cover transition-all duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-200">
@@ -230,20 +230,20 @@ export default function Projects() {
               </div>
 
               <CardHeader className="pb-4">
-                <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors duration-300">
+                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-200">
                   {project.title}
                 </CardTitle>
               </CardHeader>
 
               <CardContent className="space-y-6">
-                <p className="text-muted-foreground leading-relaxed text-lg">{project.description}</p>
+                <p className="text-muted-foreground leading-relaxed text-base">{project.description}</p>
 
                 <div className="flex flex-wrap gap-3">
                   {project.technologies.map((tech, techIndex) => (
                     <Badge
                       key={techIndex}
                       variant="secondary"
-                      className="text-sm px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-default"
+                      className="text-xs px-2 py-1 hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-default"
                     >
                       {tech}
                     </Badge>
@@ -253,7 +253,7 @@ export default function Projects() {
                 <div className="flex space-x-4 pt-6">
                   {project.liveUrl && (
                     <Button
-                      className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                      className="bg-primary hover:bg-primary/90 transition-colors duration-200 shadow-md hover:shadow-lg"
                       asChild
                     >
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -265,7 +265,7 @@ export default function Projects() {
                   {project.githubUrl && (
                     <Button
                       variant="outline"
-                      className="hover:bg-accent hover:scale-105 transition-all duration-200 border-2 bg-transparent"
+                      className="hover:bg-accent transition-colors duration-200 border bg-transparent"
                       asChild
                     >
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">

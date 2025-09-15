@@ -144,7 +144,7 @@ export default function Certificates() {
               ref={(el) => {
                 if (el) cardsRef.current[i] = el
               }}
-              className="group border-2 border-transparent hover:border-secondary/20 bg-card/80 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:shadow-2xl"
+              className="group border-2 border-transparent hover:border-secondary/10 bg-card/70 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-lg"
             >
               <CardHeader className="pb-2 flex flex-row items-center gap-3">
                 <div className="p-3 rounded-lg bg-secondary/15 text-secondary border border-secondary/20">

@@ -254,7 +254,7 @@ export default function HeroProjectsSplit() {
                   {[...allProjects, ...allProjects].map((project, index) => (
                     <div
                       key={`row1-${index}`}
-                      className="bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 3xl:p-10 4xl:p-12 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[380px] xs:w-[420px] sm:w-[480px] md:w-[540px] lg:w-[650px] xl:w-[720px] 2xl:w-[780px] 3xl:w-[900px] 4xl:w-[960px] 5xl:w-[1020px] ring-0 hover:ring-2 hover:ring-primary/20 hover:-translate-y-1"
+                      className="bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 3xl:p-10 4xl:p-12 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[320px] xs:w-[360px] sm:w-[420px] md:w-[480px] lg:w-[560px] xl:w-[620px] 2xl:w-[680px] 3xl:w-[760px] 4xl:w-[820px] 5xl:w-[880px] ring-0 hover:ring hover:ring-primary/20 hover:-translate-y-0.5"
                     >
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8 3xl:gap-10 4xl:gap-12">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
@@ -336,7 +336,7 @@ export default function HeroProjectsSplit() {
                   {[...allProjects.slice().reverse(), ...allProjects.slice().reverse()].map((project, index) => (
                     <div
                       key={`row2-${index}`}
-                      className="bg-gradient-to-br from-secondary/20 via-accent/15 to-primary/20 backdrop-blur-sm border border-secondary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[380px] xs:w-[420px] sm:w-[480px] md:w-[540px] lg:w-[650px] xl:w-[720px] 2xl:w-[780px] 3xl:w-[900px] 4xl:w-[960px] 5xl:w-[1020px] ring-0 hover:ring-2 hover:ring-secondary/20 hover:-translate-y-1"
+                      className="bg-gradient-to-br from-secondary/20 via-accent/15 to-primary/20 backdrop-blur-sm border border-secondary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[320px] xs:w-[360px] sm:w-[420px] md:w-[480px] lg:w-[560px] xl:w-[620px] 2xl:w-[680px] 3xl:w-[760px] 4xl:w-[820px] 5xl:w-[880px] ring-0 hover:ring hover:ring-secondary/20 hover:-translate-y-0.5"
                     >
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
