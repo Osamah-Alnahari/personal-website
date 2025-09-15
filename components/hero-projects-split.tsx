@@ -250,7 +250,7 @@ export default function HeroProjectsSplit() {
                 onMouseEnter={handleFirstRowMouseEnter}
                 onMouseLeave={handleFirstRowMouseLeave}
               >
-                <div ref={firstRowRef} className="flex gap-3 sm:gap-4 md:gap-6 lg:gap-8 3xl:gap-12 4xl:gap-16 w-max">
+                <div ref={firstRowRef} className="flex gap-3 sm:gap-4 md:gap-6 lg:gap-8 3xl:gap-12 4xl:gap-16 w-full">
                   {[...allProjects, ...allProjects].map((project, index) => (
                     <div
                       key={`row1-${index}`}
@@ -332,7 +332,7 @@ export default function HeroProjectsSplit() {
                 onMouseEnter={handleSecondRowMouseEnter}
                 onMouseLeave={handleSecondRowMouseLeave}
               >
-                <div ref={secondRowRef} className="flex gap-3 sm:gap-4 md:gap-6 lg:gap-8 w-max">
+                <div ref={secondRowRef} className="flex gap-3 sm:gap-4 md:gap-6 lg:gap-8 w-full">
                   {[...allProjects.slice().reverse(), ...allProjects.slice().reverse()].map((project, index) => (
                     <div
                       key={`row2-${index}`}
