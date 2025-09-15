@@ -59,63 +59,19 @@ export default function Projects() {
 
       cardsRef.current.forEach((card, index) => {
         if (card) {
-          // Initial entrance animation
           gsap.fromTo(
             card,
-            {
-              y: 80,
-              opacity: 0,
-              scale: 0.9,
-              rotationY: -15,
-            },
+            { y: 60, opacity: 0, scale: 0.98 },
             {
               y: 0,
               opacity: 1,
               scale: 1,
-              rotationY: 0,
-              duration: 0.8,
-              delay: index * 0.2,
+              duration: 0.7,
+              delay: index * 0.15,
               ease: "power3.out",
-              scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-              },
+              scrollTrigger: { trigger: card, start: "top 85%" },
             },
           )
-
-          const handleMouseMove = (e: MouseEvent) => {
-            const rect = card.getBoundingClientRect()
-            const x = e.clientX - rect.left - rect.width / 2
-            const y = e.clientY - rect.top - rect.height / 2
-
-            gsap.to(card, {
-              x: x * 0.05,
-              y: y * 0.05,
-              rotationX: y * 0.02,
-              rotationY: x * 0.02,
-              duration: 0.25,
-              ease: "power2.out",
-            })
-          }
-
-          const handleMouseLeave = () => {
-            gsap.to(card, {
-              x: 0,
-              y: 0,
-              rotationX: 0,
-              rotationY: 0,
-              duration: 0.5,
-              ease: "power2.out",
-            })
-          }
-
-          card.addEventListener("mousemove", handleMouseMove)
-          card.addEventListener("mouseleave", handleMouseLeave)
-
-          return () => {
-            card.removeEventListener("mousemove", handleMouseMove)
-            card.removeEventListener("mouseleave", handleMouseLeave)
-          }
         }
       })
     }, sectionRef)
@@ -208,29 +164,42 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 3xl:grid-cols-3 4xl:grid-cols-4 gap-6 md:gap-8 lg:gap-12 3xl:gap-16 4xl:gap-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 3xl:gap-12">
           {projects.map((project, index) => (
             <Card
               key={index}
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="overflow-hidden rounded-2xl ring-1 ring-primary/10 hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/10 bg-card/70 backdrop-blur-sm py-3"
+              className="group overflow-hidden rounded-2xl bg-card/80 backdrop-blur-sm ring-1 ring-primary/10 border border-transparent shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="relative overflow-hidden">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full aspect-[16/10] object-cover transition-all duration-300 group-hover:scale-[1.03]"
+                  className="w-full aspect-[16/10] object-cover transition-transform duration-200 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-200">
+                {(project.liveUrl || project.githubUrl) ? (
+                  <a
+                    href={(project.liveUrl || project.githubUrl) || undefined}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out"
+                  >
+                    <span className="text-white text-sm sm:text-base font-medium tracking-wide">View Project</span>
+                  </a>
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
+                    <span className="text-white/80 text-sm sm:text-base font-medium tracking-wide">View Project</span>
+                  </div>
+                )}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
                   <Badge className="bg-primary/90 text-primary-foreground">Featured</Badge>
                 </div>
               </div>
 
               <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-200">
+                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-200 ease-out">
                   {project.title}
                 </CardTitle>
               </CardHeader>
