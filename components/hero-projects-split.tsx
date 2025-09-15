@@ -244,7 +244,7 @@ export default function HeroProjectsSplit() {
           </div>
 
           <div ref={rightSideRef} className="space-y-4 sm:space-y-6 lg:space-y-8 w-full max-w-none lg:col-span-3">
-            <div className="space-y-4 sm:space-y-6 md:space-y-8 3xl:space-y-12 4xl:space-y-16 w-auto self-stretch bg-gradient-to-br from-background/50 via-muted/20 to-background/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 shadow-lg shadow-primary/5 border border-primary/10 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/20 transition-all duration-500">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 3xl:space-y-12 4xl:space-y-16 w-auto self-stretch bg-transparent rounded-2xl sm:rounded-3xl p-4 border-0 shadow-none hover:shadow-none hover:border-transparent transition-all duration-500">
               <div
                 className="overflow-hidden w-full rounded-xl sm:rounded-2xl"
                 onMouseEnter={handleFirstRowMouseEnter}
@@ -254,7 +254,7 @@ export default function HeroProjectsSplit() {
                   {[...allProjects, ...allProjects].map((project, index) => (
                     <div
                       key={`row1-${index}`}
-                      className="bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 3xl:p-10 4xl:p-12 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[380px] xs:w-[420px] sm:w-[480px] md:w-[540px] lg:w-[650px] xl:w-[720px] 2xl:w-[780px] 3xl:w-[900px] 4xl:w-[960px] 5xl:w-[1020px]"
+                      className="bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 3xl:p-10 4xl:p-12 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[380px] xs:w-[420px] sm:w-[480px] md:w-[540px] lg:w-[650px] xl:w-[720px] 2xl:w-[780px] 3xl:w-[900px] 4xl:w-[960px] 5xl:w-[1020px] ring-0 hover:ring-2 hover:ring-primary/20 hover:-translate-y-1"
                     >
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8 3xl:gap-10 4xl:gap-12">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
@@ -336,7 +336,7 @@ export default function HeroProjectsSplit() {
                   {[...allProjects.slice().reverse(), ...allProjects.slice().reverse()].map((project, index) => (
                     <div
                       key={`row2-${index}`}
-                      className="bg-gradient-to-br from-secondary/20 via-accent/15 to-primary/20 backdrop-blur-sm border border-secondary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[380px] xs:w-[420px] sm:w-[480px] md:w-[540px] lg:w-[650px] xl:w-[720px] 2xl:w-[780px] 3xl:w-[900px] 4xl:w-[960px] 5xl:w-[1020px]"
+                      className="bg-gradient-to-br from-secondary/20 via-accent/15 to-primary/20 backdrop-blur-sm border border-secondary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[380px] xs:w-[420px] sm:w-[480px] md:w-[540px] lg:w-[650px] xl:w-[720px] 2xl:w-[780px] 3xl:w-[900px] 4xl:w-[960px] 5xl:w-[1020px] ring-0 hover:ring-2 hover:ring-secondary/20 hover:-translate-y-1"
                     >
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
