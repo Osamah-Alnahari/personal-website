@@ -215,13 +215,13 @@ export default function Projects() {
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="overflow-hidden hover:shadow-lg transition-all duration-300 group border-2 border-transparent hover:border-primary/10 bg-card/70 backdrop-blur-sm py-4"
+              className="overflow-hidden rounded-2xl ring-1 ring-primary/10 hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-primary/10 bg-card/70 backdrop-blur-sm py-3"
             >
               <div className="relative overflow-hidden">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full aspect-[16/10] object-cover transition-all duration-300 group-hover:scale-105"
+                  className="w-full aspect-[16/10] object-cover transition-all duration-300 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-200">
@@ -229,14 +229,14 @@ export default function Projects() {
                 </div>
               </div>
 
-              <CardHeader className="pb-4">
+              <CardHeader className="pb-3">
                 <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-200">
                   {project.title}
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground leading-relaxed text-base">{project.description}</p>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground leading-relaxed text-sm">{project.description}</p>
 
                 <div className="flex flex-wrap gap-3">
                   {project.technologies.map((tech, techIndex) => (
@@ -250,10 +250,10 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="flex space-x-4 pt-6">
+                <div className="flex space-x-3 pt-4">
                   {project.liveUrl && (
                     <Button
-                      className="bg-primary hover:bg-primary/90 transition-colors duration-200 shadow-md hover:shadow-lg"
+                      className="bg-primary hover:bg-primary/90 transition-colors duration-200 shadow-sm hover:shadow-md"
                       asChild
                     >
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -265,7 +265,7 @@ export default function Projects() {
                   {project.githubUrl && (
                     <Button
                       variant="outline"
-                      className="hover:bg-accent transition-colors duration-200 border bg-transparent"
+                      className="hover:bg-accent transition-colors duration-200 border bg-transparent text-foreground"
                       asChild
                     >
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
