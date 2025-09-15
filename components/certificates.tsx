@@ -67,46 +67,63 @@ export default function Certificates() {
 
   const certificates = [
     {
-      title: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      date: "2024",
-      credentialId: "AWS-CLF-XXXX",
-      link: "#",
+      title: "AWS Certified Solutions Architect – Associate",
+      issuer: "Amazon Web Services (AWS)",
+      issued: "Sep 2025",
+      expires: "Sep 2028",
+      credentialId: "81652708-f5f7-413c-8963-efd1e84a7a45",
+      link: "",
     },
     {
-      title: "Google Professional Machine Learning Engineer",
-      issuer: "Google Cloud",
-      date: "2023",
-      credentialId: "GCP-ML-XXXX",
-      link: "#",
+      title: "Meta Full-Stack Developer",
+      issuer: "Meta",
+      issued: "Aug 2025",
+      credentialId: "XBW7BTE271GO",
+      link: "",
     },
     {
-      title: "Microsoft Certified: Azure Fundamentals",
-      issuer: "Microsoft",
-      date: "2023",
-      credentialId: "AZ-900-XXXX",
-      link: "#",
+      title: "Financial Sustainability",
+      issuer: "BSF",
+      issued: "Jan 2025",
+      credentialId: "",
+      link: "",
     },
     {
-      title: "DeepLearning.AI TensorFlow Developer",
-      issuer: "DeepLearning.AI",
-      date: "2022",
-      credentialId: "TF-DEV-XXXX",
-      link: "#",
+      title: "React - The Complete Guide 2025 (incl. Next.js, Redux)",
+      issuer: "Udemy",
+      issued: "Jan 2025",
+      credentialId: "UC-967bfdee-bae8-433d-aca1-e7c8ca2ab5a2",
+      link: "",
     },
     {
-      title: "Full-Stack Web Development",
-      issuer: "Coursera",
-      date: "2022",
-      credentialId: "FSWD-XXXX",
-      link: "#",
+      title: "The Web Developer Bootcamp 2025",
+      issuer: "Udemy",
+      issued: "Sep 2024",
+      credentialId: "UC-617ee518-65d0-4664-a41c-cec36d32ddc6",
+      link: "",
     },
     {
-      title: "Data Structures & Algorithms",
-      issuer: "Udacity",
-      date: "2021",
-      credentialId: "DSA-XXXX",
-      link: "#",
+      title: "رائد متقدم",
+      issuer: "أكاديمية الفوزان",
+      issued: "Aug 2024",
+      credentialId: "",
+      link: "",
+    },
+    {
+      title: "Research Skills",
+      issuer: "King Fahd University of Petroleum & Minerals (KFUPM)",
+      issued: "Jul 2024",
+      expired: "Jul 2024",
+      credentialId: "SSC316_233001",
+      link: "",
+    },
+    {
+      title: "Principles of Project Management",
+      issuer: "King Fahd University of Petroleum & Minerals (KFUPM)",
+      issued: "Jun 2023",
+      expired: "Jun 2023",
+      credentialId: "SSC_223001",
+      link: "",
     },
   ]
 
@@ -159,20 +176,28 @@ export default function Certificates() {
               </CardHeader>
 
               <CardContent className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <Badge variant="outline" className="border-secondary/30 text-secondary">
-                    {cert.date}
-                  </Badge>
-                  <Badge variant="secondary" className="bg-accent/20 text-accent">ID: {cert.credentialId}</Badge>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Badge variant="outline" className="border-secondary/30 text-secondary">Issued {cert.issued || cert.date}</Badge>
+                  {cert.expires && (
+                    <Badge variant="outline" className="border-primary/30 text-primary">Expires {cert.expires}</Badge>
+                  )}
+                  {cert.expired && (
+                    <Badge variant="outline" className="border-destructive/30 text-destructive">Expired {cert.expired}</Badge>
+                  )}
+                  {cert.credentialId && (
+                    <Badge variant="secondary" className="bg-accent/20 text-accent">ID: {cert.credentialId}</Badge>
+                  )}
                 </div>
 
-                <div className="pt-2">
-                  <Button variant="outline" className="hover:bg-accent hover:text-accent-foreground" asChild>
-                    <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink size={16} className="mr-2" /> View Credential
-                    </a>
-                  </Button>
-                </div>
+                {cert.link ? (
+                  <div className="pt-2">
+                    <Button variant="outline" className="hover:bg-accent hover:text-accent-foreground" asChild>
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink size={16} className="mr-2" /> View Credential
+                      </a>
+                    </Button>
+                  </div>
+                ) : null}
               </CardContent>
             </Card>
           ))}
