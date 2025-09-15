@@ -7,6 +7,7 @@ import Contact from "@/components/contact"
 import Navigation from "@/components/navigation"
 import GSAPProvider from "@/components/gsap-provider"
 import Research from "@/components/research"
+import Certificates from "@/components/certificates"
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           <HeroProjectsSplit />
           <About />
           <Projects />
+          <Certificates />
           <Research />
           <Skills />
           <Experience />
