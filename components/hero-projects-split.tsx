@@ -179,9 +179,9 @@ export default function HeroProjectsSplit() {
         <Cloud className="tech-icon absolute top-60 left-1/2 text-accent/20" size={30} />
       </div>
 
-      <div className="max-w-7xl 3xl:max-w-8xl 4xl:max-w-9xl 5xl:max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20 w-full relative z-10">
-        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-8 lg:gap-16 3xl:gap-20 4xl:gap-24 5xl:gap-28 items-center min-h-[80vh] my-0 h-96">
-          <div ref={leftSideRef} className="space-y-6 lg:space-y-8 lg:col-span-2 text-center lg:text-left">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20 w-full relative z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-8 lg:gap-16 3xl:gap-20 4xl:gap-24 5xl:gap-28 items-center min-h-[80vh] my-0 h-96 w-full self-stretch">
+          <div ref={leftSideRef} className="space-y-6 lg:space-y-8 lg:col-span-2 text-center lg:text-left pl-[30px]">
             <div className="space-y-4 lg:space-y-6">
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 3xl:text-7xl 4xl:text-7xl 5xl:text-8xl font-bold text-foreground text-balance">
                 Hi, I'm{" "}
@@ -244,7 +244,7 @@ export default function HeroProjectsSplit() {
           </div>
 
           <div ref={rightSideRef} className="space-y-4 sm:space-y-6 lg:space-y-8 w-full max-w-none lg:col-span-3">
-            <div className="space-y-4 sm:space-y-6 md:space-y-8 3xl:space-y-12 4xl:space-y-16 w-full bg-gradient-to-br from-background/50 via-muted/20 to-background/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 shadow-lg shadow-primary/5 border border-primary/10 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/20 transition-all duration-500">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 3xl:space-y-12 4xl:space-y-16 w-auto self-stretch bg-gradient-to-br from-background/50 via-muted/20 to-background/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 shadow-lg shadow-primary/5 border border-primary/10 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/20 transition-all duration-500">
               <div
                 className="overflow-hidden w-full rounded-xl sm:rounded-2xl"
                 onMouseEnter={handleFirstRowMouseEnter}
