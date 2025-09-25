@@ -169,7 +169,6 @@ export default function HeroProjectsSplit() {
       id="hero"
       className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-background via-muted/10 to-background"
     >
-      <div aria-hidden="true" className="absolute inset-0 bg-[url('/ai-chatbot-interface.png')] bg-cover bg-center"></div>
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5"></div>
 
       <div className="absolute inset-0 pointer-events-none hidden md:block">
