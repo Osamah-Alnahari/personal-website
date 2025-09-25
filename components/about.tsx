@@ -136,14 +136,10 @@ export default function About() {
               My Journey
             </h3>
             <p className="text-sm sm:text-base 3xl:text-base 4xl:text-lg text-muted-foreground mb-4 md:mb-6 3xl:mb-8 leading-relaxed">
-              Currently pursuing my Bachelor's in Software Engineering at KFUPM (GPA: 3.68/4) while conducting
-              cutting-edge research at JRCAI on Arabic NLP and Large Language Models. I specialize in architecting
-              cloud-native solutions and integrating AI technologies to solve complex real-world problems.
+              Im an AI & Cloud Solutions Engineer from KFUPM, building Arabic NLP and LLM3driven products at JRCAI. I design cloud3native systems that turn research into reliable, scalable software.
             </p>
             <p className="text-sm sm:text-base 3xl:text-base 4xl:text-lg text-muted-foreground leading-relaxed">
-              My expertise spans from training transformer models and deploying ML pipelines to building scalable web
-              applications with modern cloud infrastructure. I'm passionate about making AI accessible and creating
-              systems that can handle enterprise-scale workloads.
+              From data and training to deployment and observability, I deliver end3to3end ML pipelines and full3stack apps on AWS and Kubernetes with Next.js and TypeScriptfocused on performance, resilience, and a great developer experience.
             </p>
           </div>
 

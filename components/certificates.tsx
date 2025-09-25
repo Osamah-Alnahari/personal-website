@@ -178,12 +178,6 @@ export default function Certificates() {
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <Badge variant="outline" className="border-secondary/30 text-secondary">Issued {cert.issued || cert.date}</Badge>
-                  {cert.expires && (
-                    <Badge variant="outline" className="border-primary/30 text-primary">Expires {cert.expires}</Badge>
-                  )}
-                  {cert.expired && (
-                    <Badge variant="outline" className="border-destructive/30 text-destructive">Expired {cert.expired}</Badge>
-                  )}
                   {cert.credentialId && (
                     <Badge variant="secondary" className="bg-accent/20 text-accent">ID: {cert.credentialId}</Badge>
                   )}
