@@ -59,63 +59,19 @@ export default function Projects() {
 
       cardsRef.current.forEach((card, index) => {
         if (card) {
-          // Initial entrance animation
           gsap.fromTo(
             card,
-            {
-              y: 80,
-              opacity: 0,
-              scale: 0.9,
-              rotationY: -15,
-            },
+            { y: 60, opacity: 0, scale: 0.98 },
             {
               y: 0,
               opacity: 1,
               scale: 1,
-              rotationY: 0,
-              duration: 0.8,
-              delay: index * 0.2,
+              duration: 0.7,
+              delay: index * 0.15,
               ease: "power3.out",
-              scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-              },
+              scrollTrigger: { trigger: card, start: "top 85%" },
             },
           )
-
-          const handleMouseMove = (e: MouseEvent) => {
-            const rect = card.getBoundingClientRect()
-            const x = e.clientX - rect.left - rect.width / 2
-            const y = e.clientY - rect.top - rect.height / 2
-
-            gsap.to(card, {
-              x: x * 0.1,
-              y: y * 0.1,
-              rotationX: y * 0.05,
-              rotationY: x * 0.05,
-              duration: 0.3,
-              ease: "power2.out",
-            })
-          }
-
-          const handleMouseLeave = () => {
-            gsap.to(card, {
-              x: 0,
-              y: 0,
-              rotationX: 0,
-              rotationY: 0,
-              duration: 0.5,
-              ease: "power2.out",
-            })
-          }
-
-          card.addEventListener("mousemove", handleMouseMove)
-          card.addEventListener("mouseleave", handleMouseLeave)
-
-          return () => {
-            card.removeEventListener("mousemove", handleMouseMove)
-            card.removeEventListener("mouseleave", handleMouseLeave)
-          }
         }
       })
     }, sectionRef)
@@ -208,52 +164,65 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 3xl:grid-cols-3 4xl:grid-cols-4 gap-6 md:gap-8 lg:gap-12 3xl:gap-16 4xl:gap-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 3xl:gap-12">
           {projects.map((project, index) => (
             <Card
               key={index}
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="overflow-hidden hover:shadow-2xl transition-all duration-500 group border-2 border-transparent hover:border-primary/20 bg-card/80 backdrop-blur-sm"
+              className="group overflow-hidden rounded-2xl bg-card/80 backdrop-blur-sm ring-1 ring-primary/10 border border-transparent shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="relative overflow-hidden">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full aspect-[16/10] object-cover transition-all duration-500 group-hover:scale-110"
+                  className="w-full aspect-[16/10] object-cover transition-transform duration-200 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-200">
+                {(project.liveUrl || project.githubUrl) ? (
+                  <a
+                    href={(project.liveUrl || project.githubUrl) || undefined}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out"
+                  >
+                    <span className="text-white text-sm sm:text-base font-medium tracking-wide">View Project</span>
+                  </a>
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
+                    <span className="text-white/80 text-sm sm:text-base font-medium tracking-wide">View Project</span>
+                  </div>
+                )}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
                   <Badge className="bg-primary/90 text-primary-foreground">Featured</Badge>
                 </div>
               </div>
 
-              <CardHeader className="pb-4">
-                <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors duration-300">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-200 ease-out">
                   {project.title}
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground leading-relaxed text-lg">{project.description}</p>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground leading-relaxed text-sm">{project.description}</p>
 
                 <div className="flex flex-wrap gap-3">
                   {project.technologies.map((tech, techIndex) => (
                     <Badge
                       key={techIndex}
                       variant="secondary"
-                      className="text-sm px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-default"
+                      className="text-xs px-2 py-1 hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-default"
                     >
                       {tech}
                     </Badge>
                   ))}
                 </div>
 
-                <div className="flex space-x-4 pt-6">
+                <div className="flex space-x-3 pt-4">
                   {project.liveUrl && (
                     <Button
-                      className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                      className="bg-primary hover:bg-primary/90 transition-colors duration-200 shadow-sm hover:shadow-md"
                       asChild
                     >
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -265,7 +234,7 @@ export default function Projects() {
                   {project.githubUrl && (
                     <Button
                       variant="outline"
-                      className="hover:bg-accent hover:scale-105 transition-all duration-200 border-2 bg-transparent"
+                      className="hover:bg-accent transition-colors duration-200 border bg-transparent text-foreground"
                       asChild
                     >
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">

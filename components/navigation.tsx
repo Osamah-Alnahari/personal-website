@@ -17,13 +17,41 @@ const navItems = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState<string>("#hero")
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+      const doc = document.documentElement
+      const total = doc.scrollHeight - doc.clientHeight
+      const p = total > 0 ? (doc.scrollTop / total) * 100 : 0
+      setProgress(Math.min(100, Math.max(0, p)))
     }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = `#${entry.target.id}`
+            setActive(id)
+          }
+        })
+      },
+      { threshold: 0.5 },
+    )
+
+    navItems.forEach((item) => {
+      const el = document.querySelector(item.href)
+      if (el) observer.observe(el)
+    })
+
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      observer.disconnect()
+    }
   }, [])
 
   useEffect(() => {
@@ -54,7 +82,7 @@ export default function Navigation() {
         boxShadow: scrolled ? "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)" : "none",
       }}
     >
-      <div className="max-w-7xl 3xl:max-w-8xl 4xl:max-w-9xl 5xl:max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20">
+      <div className="relative max-w-7xl 3xl:max-w-8xl 4xl:max-w-9xl 5xl:max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20">
         <div className="flex justify-between items-center py-4 3xl:py-6 4xl:py-8">
           <div className="text-xl sm:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold text-primary">Portfolio</div>
 
@@ -64,7 +92,11 @@ export default function Navigation() {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-sm lg:text-base 3xl:text-lg 4xl:text-xl text-foreground hover:text-primary hover:bg-primary/10 px-3 py-2 rounded-md transition-all duration-200 font-medium"
+                className={`text-sm lg:text-base 3xl:text-lg 4xl:text-xl px-3 py-2 rounded-md transition-all duration-200 font-medium ${
+                  active === item.href
+                    ? "text-primary bg-primary/10"
+                    : "text-foreground hover:text-primary hover:bg-primary/10"
+                }`}
               >
                 {item.name}
               </button>
@@ -111,6 +143,9 @@ export default function Navigation() {
             </div>
           </div>
         )}
+        <div className="absolute bottom-0 left-0 h-0.5 rounded-full bg-primary/20 w-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-primary via-accent to-secondary" style={{ width: `${progress}%` }} />
+        </div>
       </div>
     </nav>
   )

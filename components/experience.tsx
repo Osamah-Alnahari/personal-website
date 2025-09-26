@@ -41,7 +41,7 @@ export default function Experience() {
       location: "Dhahran, Saudi Arabia",
       period: "Aug 2021 - Dec 2025",
       description:
-        "Pursuing Bachelor's in Software Engineering (GPA: 3.68/4) with specialization in AI and cloud computing. Completed advanced coursework in Machine Learning, Deep Learning, Cloud Architecture, and Software Engineering. Active contributor to research projects and open-source initiatives.",
+        "Pursuing Bachelor's in Software Engineering with specialization in AI and cloud computing. Completed advanced coursework in Machine Learning, Deep Learning, Cloud Architecture, and Software Engineering. Active contributor to research projects and open-source initiatives.",
       technologies: ["Java", "Python", "Machine Learning", "Cloud Computing", "Software Architecture", "Research"],
       icon: <GraduationCap className="w-5 h-5" />,
       type: "education",
