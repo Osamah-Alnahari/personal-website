@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useEffect, useRef } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Brain, Cloud, Code, Database, Cpu, Zap } from "lucide-react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect, useRef } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Brain, Cloud, Code, Database, Cpu, Zap } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Skills() {
-  const skillsRef = useRef<HTMLElement>(null)
+  const skillsRef = useRef<HTMLElement>(null);
 
   const skillCategories = [
     {
@@ -56,26 +56,26 @@ export default function Skills() {
         { name: "Analytics/Monitoring", level: 82 },
       ],
     },
-  ]
+  ];
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      gsap.set(".skill-icon", { opacity: 0, scale: 0, rotation: -180 })
+      gsap.set(".skill-icon", { opacity: 0, scale: 0, rotation: -180 });
       gsap.to(".skill-icon", {
         opacity: 1,
         scale: 1,
         rotation: 0,
-        duration: 1.5,
-        stagger: 0.2,
-        ease: "back.out(1.7)",
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: skillsRef.current,
-          start: "top 80%",
+          start: "top 95%",
           toggleActions: "play none none reverse",
         },
-      })
+      });
 
       // Continuous floating animation for icons
       gsap.to(".skill-icon", {
@@ -85,7 +85,7 @@ export default function Skills() {
         yoyo: true,
         ease: "power2.inOut",
         stagger: 0.3,
-      })
+      });
 
       // Animate skill bars
       skillCategories.forEach((category, categoryIndex) => {
@@ -99,46 +99,55 @@ export default function Skills() {
               ease: "power2.out",
               scrollTrigger: {
                 trigger: `.skill-bar-${categoryIndex}-${skillIndex}`,
-                start: "top 80%",
+                start: "top 95%",
                 toggleActions: "play none none reverse",
               },
-            },
-          )
-        })
-      })
+            }
+          );
+        });
+      });
 
-      gsap.set(".skill-card", { scale: 1 })
+      gsap.set(".skill-card", { scale: 1 });
 
       document.querySelectorAll(".skill-card").forEach((card) => {
         card.addEventListener("mouseenter", () => {
-          gsap.to(card, { scale: 1.02, duration: 0.3, ease: "power2.out" })
-        })
+          gsap.to(card, { scale: 1.02, duration: 0.3, ease: "power2.out" });
+        });
         card.addEventListener("mouseleave", () => {
-          gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" })
-        })
-      })
-    }, skillsRef)
+          gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
+        });
+      });
+    }, skillsRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="skills" ref={skillsRef} className="py-20 bg-muted/20 relative overflow-hidden">
+    <section
+      id="skills"
+      ref={skillsRef}
+      className="py-20 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden"
+    >
       <div className="absolute inset-0 pointer-events-none opacity-5">
         <Cpu className="absolute top-20 left-10 text-primary" size={40} />
         <Zap className="absolute top-40 right-20 text-accent" size={35} />
-        <Database className="absolute bottom-40 left-20 text-secondary" size={45} />
+        <Database
+          className="absolute bottom-40 left-20 text-secondary"
+          size={45}
+        />
         <Brain className="absolute bottom-20 right-10 text-primary" size={38} />
       </div>
 
       <div className="max-w-7xl 3xl:max-w-8xl 4xl:max-w-9xl 5xl:max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20 relative z-10">
         <div className="text-center mb-12 md:mb-16 3xl:mb-20 4xl:mb-24">
-          <h2 className="text-3xl xs:text-4xl md:text-5xl 3xl:text-6xl 4xl:text-7xl 5xl:text-8xl font-bold text-foreground mb-6 gsap-fade-up">
+          <h2 className="text-3xl xs:text-4xl md:text-5xl 3xl:text-6xl 4xl:text-7xl 5xl:text-8xl font-bold gradient-text mb-6 gsap-fade-up">
             Skills & Expertise
           </h2>
-          <p className="text-lg xs:text-xl 3xl:text-2xl 4xl:text-3xl text-muted-foreground max-w-3xl 3xl:max-w-4xl 4xl:max-w-5xl mx-auto gsap-fade-up text-pretty">
-            Cutting-edge expertise in AI research, cloud architecture, and scalable software engineering built through
-            academic excellence and industry experience
+          <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto mb-6"></div>
+          <p className="text-lg xs:text-xl 3xl:text-2xl 4xl:text-3xl text-muted-foreground max-w-3xl 3xl:max-w-4xl 4xl:max-w-5xl mx-auto gsap-fade-up text-pretty leading-relaxed">
+            Cutting-edge expertise in AI research, cloud architecture, and
+            scalable software engineering built through academic excellence and
+            industry experience
           </p>
         </div>
 
@@ -146,13 +155,14 @@ export default function Skills() {
           {skillCategories.map((category, categoryIndex) => (
             <Card
               key={categoryIndex}
-              className="skill-card hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 border-border/50 bg-card/80 backdrop-blur-sm"
+              className="skill-card professional-shadow hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 border-border/30 glass-morphism hover-lift"
             >
               <CardHeader className="pb-4 3xl:pb-6 4xl:pb-8 text-center">
                 <div className="skill-icon flex justify-center mb-3">
                   <div className="w-12 h-12 3xl:w-16 3xl:h-16 4xl:w-20 4xl:h-20 bg-primary/10 rounded-full flex items-center justify-center">
                     {React.cloneElement(category.icon, {
-                      className: "w-6 h-6 3xl:w-8 3xl:h-8 4xl:w-10 4xl:h-10 text-primary",
+                      className:
+                        "w-6 h-6 3xl:w-8 3xl:h-8 4xl:w-10 4xl:h-10 text-primary",
                     })}
                   </div>
                 </div>
@@ -171,12 +181,13 @@ export default function Skills() {
                         {skill.level}%
                       </span>
                     </div>
-                    <div className="w-full bg-muted rounded-full h-2 3xl:h-3 4xl:h-4">
+                    <div className="w-full bg-muted/50 rounded-full h-3 3xl:h-4 4xl:h-5 shadow-inner">
                       <div
-                        className={`skill-bar-${categoryIndex}-${skillIndex} bg-gradient-to-r from-primary via-accent to-secondary h-2 3xl:h-3 4xl:h-4 rounded-full relative overflow-hidden`}
+                        className={`skill-bar-${categoryIndex}-${skillIndex} bg-gradient-to-r from-primary via-accent to-secondary h-full rounded-full relative overflow-hidden shadow-lg`}
                         style={{ width: "0%" }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white/40 to-transparent rounded-full"></div>
                       </div>
                     </div>
                   </div>
@@ -187,5 +198,5 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }

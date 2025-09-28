@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github } from "lucide-react"
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
-  const cardsRef = useRef<HTMLDivElement[]>([])
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -35,11 +35,11 @@ export default function Projects() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: titleRef.current,
-            start: "top 80%",
+            start: "top 95%",
             end: "bottom 20%",
           },
-        },
-      )
+        }
+      );
 
       gsap.fromTo(
         subtitleRef.current,
@@ -52,10 +52,10 @@ export default function Projects() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: subtitleRef.current,
-            start: "top 80%",
+            start: "top 95%",
           },
-        },
-      )
+        }
+      );
 
       cardsRef.current.forEach((card, index) => {
         if (card) {
@@ -66,18 +66,18 @@ export default function Projects() {
               y: 0,
               opacity: 1,
               scale: 1,
-              duration: 0.7,
-              delay: index * 0.15,
-              ease: "power3.out",
-              scrollTrigger: { trigger: card, start: "top 85%" },
-            },
-          )
+              duration: 0.5,
+              delay: index * 0.1,
+              ease: "power2.out",
+              scrollTrigger: { trigger: card, start: "top 95%" },
+            }
+          );
         }
-      })
-    }, sectionRef)
+      });
+    }, sectionRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   const projects = [
     {
@@ -134,13 +134,13 @@ export default function Projects() {
       liveUrl: null,
       githubUrl: null,
     },
-  ]
+  ];
 
   return (
     <section
       ref={sectionRef}
       id="projects"
-      className="py-20 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-muted/20 via-background to-muted/20 relative overflow-hidden"
     >
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
@@ -151,16 +151,17 @@ export default function Projects() {
         <div className="text-center mb-12 md:mb-16 3xl:mb-20 4xl:mb-24">
           <h2
             ref={titleRef}
-            className="text-4xl sm:text-5xl md:text-7xl 3xl:text-8xl 4xl:text-9xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6 text-balance"
+            className="text-4xl sm:text-5xl md:text-7xl 3xl:text-8xl 4xl:text-9xl font-bold gradient-text mb-6 text-balance"
           >
             Featured Projects
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto mb-6"></div>
           <p
             ref={subtitleRef}
             className="text-lg sm:text-xl md:text-2xl 3xl:text-3xl 4xl:text-4xl text-muted-foreground max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto text-pretty leading-relaxed"
           >
-            Showcasing innovative solutions in web development, AI integration, and software engineering through
-            real-world applications
+            Showcasing innovative solutions in web development, AI integration,
+            and software engineering through real-world applications
           </p>
         </div>
 
@@ -169,64 +170,93 @@ export default function Projects() {
             <Card
               key={index}
               ref={(el) => {
-                if (el) cardsRef.current[index] = el
+                if (el) cardsRef.current[index] = el;
               }}
-              className="group overflow-hidden rounded-2xl bg-card/80 backdrop-blur-sm ring-1 ring-primary/10 border border-transparent shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg"
+              className="group overflow-hidden rounded-2xl bg-card/90 backdrop-blur-lg border border-border/30 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:-translate-y-2 hover:scale-[1.02] relative"
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden rounded-t-2xl">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full aspect-[16/10] object-cover transition-transform duration-200 ease-out group-hover:scale-105"
+                  className="w-full aspect-[4/3] object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                 />
-                {(project.liveUrl || project.githubUrl) ? (
-                  <a
-                    href={(project.liveUrl || project.githubUrl) || undefined}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out"
-                  >
-                    <span className="text-white text-sm sm:text-base font-medium tracking-wide">View Project</span>
-                  </a>
+                {project.liveUrl || project.githubUrl ? (
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 flex items-center justify-center">
+                    <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <div className="bg-white/20 backdrop-blur-md rounded-xl px-6 py-3 border border-white/30">
+                        <span className="text-white text-base font-semibold">
+                          View Project
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
-                    <span className="text-white/80 text-sm sm:text-base font-medium tracking-wide">View Project</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 flex items-center justify-center">
+                    <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <div className="bg-white/10 backdrop-blur-md rounded-xl px-6 py-3 border border-white/20">
+                        <span className="text-white/80 text-base font-medium">
+                          Coming Soon
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 )}
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
-                  <Badge className="bg-primary/90 text-primary-foreground">Featured</Badge>
+                <div className="absolute top-4 right-4 z-30">
+                  <div className="bg-gradient-to-r from-primary to-secondary px-3 py-1 rounded-full text-white text-xs font-semibold shadow-lg">
+                    Featured
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="flex space-x-2">
+                    {project.liveUrl && (
+                      <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                        <ExternalLink size={16} className="text-white" />
+                      </div>
+                    )}
+                    {project.githubUrl && (
+                      <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                        <Github size={16} className="text-white" />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-200 ease-out">
+              <CardHeader className="pb-4 pt-6">
+                <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
                   {project.title}
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed text-sm">{project.description}</p>
+              <CardContent className="space-y-5 pb-6">
+                <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 group-hover:text-foreground/80 transition-colors duration-300">
+                  {project.description}
+                </p>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
-                    <Badge
+                    <div
                       key={techIndex}
-                      variant="secondary"
-                      className="text-xs px-2 py-1 hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-default"
+                      className="px-3 py-1.5 bg-gradient-to-r from-muted/80 to-muted/60 text-foreground/80 text-xs font-medium rounded-full border border-border/50 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/30 hover:text-primary transition-all duration-300 cursor-default"
                     >
                       {tech}
-                    </Badge>
+                    </div>
                   ))}
                 </div>
 
-                <div className="flex space-x-3 pt-4">
+                <div className="flex space-x-3 pt-2">
                   {project.liveUrl && (
                     <Button
-                      className="bg-primary hover:bg-primary/90 transition-colors duration-200 shadow-sm hover:shadow-md"
+                      className="flex-1 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 rounded-xl font-semibold"
                       asChild
                     >
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink size={18} className="mr-2" />
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink size={16} className="mr-2" />
                         Live Demo
                       </a>
                     </Button>
@@ -234,11 +264,17 @@ export default function Projects() {
                   {project.githubUrl && (
                     <Button
                       variant="outline"
-                      className="hover:bg-accent transition-colors duration-200 border bg-transparent text-foreground"
+                      className={`${
+                        project.liveUrl ? "flex-1" : "w-full"
+                      } glass-morphism border-border/50 hover:bg-primary/5 hover:border-primary/30 hover:text-primary transition-all duration-300 rounded-xl font-semibold`}
                       asChild
                     >
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github size={18} className="mr-2" />
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github size={16} className="mr-2" />
                         View Code
                       </a>
                     </Button>
@@ -250,5 +286,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }

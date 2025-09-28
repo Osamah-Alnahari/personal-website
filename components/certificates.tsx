@@ -1,20 +1,28 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Award, ExternalLink } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Award, ExternalLink, Eye, X } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Certificates() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
-  const cardsRef = useRef<HTMLDivElement[]>([])
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,8 +36,8 @@ export default function Certificates() {
           duration: 1,
           ease: "power3.out",
           scrollTrigger: { trigger: titleRef.current, start: "top 80%" },
-        },
-      )
+        }
+      );
 
       gsap.fromTo(
         subtitleRef.current,
@@ -41,11 +49,11 @@ export default function Certificates() {
           ease: "power2.out",
           delay: 0.1,
           scrollTrigger: { trigger: subtitleRef.current, start: "top 80%" },
-        },
-      )
+        }
+      );
 
       cardsRef.current.forEach((el, i) => {
-        if (!el) return
+        if (!el) return;
         gsap.fromTo(
           el,
           { y: 60, opacity: 0, scale: 0.98 },
@@ -57,13 +65,13 @@ export default function Certificates() {
             ease: "power3.out",
             delay: i * 0.12,
             scrollTrigger: { trigger: el, start: "top 85%" },
-          },
-        )
-      })
-    }, sectionRef)
+          }
+        );
+      });
+    }, sectionRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   const certificates = [
     {
@@ -72,6 +80,8 @@ export default function Certificates() {
       issued: "Sep 2025",
       expires: "Sep 2028",
       credentialId: "81652708-f5f7-413c-8963-efd1e84a7a45",
+      image: "/certificates/AWS Certified Solutions Architect.png",
+      category: "Cloud Architecture",
       link: "",
     },
     {
@@ -79,6 +89,8 @@ export default function Certificates() {
       issuer: "Meta",
       issued: "Aug 2025",
       credentialId: "XBW7BTE271GO",
+      image: "/certificates/Meta Full-Stack Developer.jpg",
+      category: "Full-Stack Development",
       link: "",
     },
     {
@@ -86,6 +98,8 @@ export default function Certificates() {
       issuer: "BSF",
       issued: "Jan 2025",
       credentialId: "",
+      image: "/certificates/Financial Sustainability.png",
+      category: "Business",
       link: "",
     },
     {
@@ -93,6 +107,9 @@ export default function Certificates() {
       issuer: "Udemy",
       issued: "Jan 2025",
       credentialId: "UC-967bfdee-bae8-433d-aca1-e7c8ca2ab5a2",
+      image:
+        "/certificates/React - The Complete Guide 2025 (incl. Next.js, Redux).jpg",
+      category: "Frontend Development",
       link: "",
     },
     {
@@ -100,13 +117,8 @@ export default function Certificates() {
       issuer: "Udemy",
       issued: "Sep 2024",
       credentialId: "UC-617ee518-65d0-4664-a41c-cec36d32ddc6",
-      link: "",
-    },
-    {
-      title: "رائد متقدم",
-      issuer: "أكاديمية الفوزان",
-      issued: "Aug 2024",
-      credentialId: "",
+      image: "/certificates/The Web Developer Bootcamp 2024.jpg",
+      category: "Web Development",
       link: "",
     },
     {
@@ -115,6 +127,8 @@ export default function Certificates() {
       issued: "Jul 2024",
       expired: "Jul 2024",
       credentialId: "SSC316_233001",
+      image: "/certificates/Research Skills Cert.png",
+      category: "Research",
       link: "",
     },
     {
@@ -123,9 +137,11 @@ export default function Certificates() {
       issued: "Jun 2023",
       expired: "Jun 2023",
       credentialId: "SSC_223001",
+      image: "/certificates/Project Management Cert.png",
+      category: "Project Management",
       link: "",
     },
-  ]
+  ];
 
   return (
     <section
@@ -150,53 +166,166 @@ export default function Certificates() {
             ref={subtitleRef}
             className="text-lg sm:text-xl md:text-2xl 3xl:text-3xl 4xl:text-4xl text-muted-foreground max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto text-pretty leading-relaxed"
           >
-            Recognitions and credentials highlighting expertise across cloud platforms, AI, and full-stack development
+            Recognitions and credentials highlighting expertise across cloud
+            platforms, AI, and full-stack development
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 4xl:grid-cols-4 gap-6 md:gap-8 lg:gap-10 3xl:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 3xl:gap-12">
           {certificates.map((cert, i) => (
             <Card
               key={i}
               ref={(el) => {
-                if (el) cardsRef.current[i] = el
+                if (el) cardsRef.current[i] = el;
               }}
-              className="group border-2 border-transparent hover:border-secondary/10 bg-card/70 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-md rounded-2xl"
+              className="group glass-morphism border border-white/10 dark:border-white/5 hover:border-secondary/20 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/10 hover:-translate-y-2 rounded-2xl backdrop-blur-xl"
             >
-              <CardHeader className="pb-2 flex flex-row items-center gap-3">
-                <div className="p-3 rounded-lg bg-secondary/15 text-secondary border border-secondary/20">
-                  <Award size={22} />
+              {/* Certificate Image */}
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-muted/50 to-muted/20">
+                {cert.image && !cert.image.endsWith(".pdf") ? (
+                  <Image
+                    src={cert.image}
+                    alt={`${cert.title} certificate`}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/10 to-accent/10">
+                    <Award size={48} className="text-secondary/60" />
+                  </div>
+                )}
+
+                {/* Category Badge */}
+                {cert.category && (
+                  <div className="absolute top-3 left-3">
+                    <Badge className="bg-secondary/90 text-secondary-foreground border-0 text-xs font-medium">
+                      {cert.category}
+                    </Badge>
+                  </div>
+                )}
+
+                {/* View Certificate Button */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <Button
+                    onClick={() => setSelectedCert(cert.image)}
+                    className="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white"
+                    size="sm"
+                  >
+                    <Eye size={16} className="mr-2" />
+                    View Certificate
+                  </Button>
                 </div>
-                <div>
-                  <CardTitle className="text-xl md:text-2xl text-foreground group-hover:text-secondary transition-colors">
+              </div>
+
+              <CardHeader className="pb-3">
+                <div className="space-y-2">
+                  <CardTitle className="text-lg md:text-xl text-foreground group-hover:text-secondary transition-colors line-clamp-2">
                     {cert.title}
                   </CardTitle>
-                  <CardDescription className="text-sm md:text-base">{cert.issuer}</CardDescription>
+                  <CardDescription className="text-sm text-muted-foreground font-medium">
+                    {cert.issuer}
+                  </CardDescription>
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <Badge variant="outline" className="border-secondary/30 text-secondary">Issued {cert.issued || cert.date}</Badge>
-                  {cert.credentialId && (
-                    <Badge variant="secondary" className="bg-accent/20 text-accent">ID: {cert.credentialId}</Badge>
+              <CardContent className="pt-0 space-y-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge
+                    variant="outline"
+                    className="border-primary/30 text-primary bg-primary/5"
+                  >
+                    Issued {cert.issued}
+                  </Badge>
+                  {cert.expires && (
+                    <Badge
+                      variant="outline"
+                      className="border-accent/30 text-accent bg-accent/5"
+                    >
+                      Expires {cert.expires}
+                    </Badge>
                   )}
                 </div>
 
-                {cert.link ? (
+                {cert.credentialId && (
+                  <div className="text-xs text-muted-foreground font-mono bg-muted/30 p-2 rounded border">
+                    <span className="font-semibold">ID:</span>{" "}
+                    {cert.credentialId}
+                  </div>
+                )}
+
+                {cert.link && (
                   <div className="pt-2">
-                    <Button variant="outline" className="hover:bg-accent hover:text-accent-foreground" asChild>
-                      <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink size={16} className="mr-2" /> View Credential
+                    <Button
+                      variant="outline"
+                      className="w-full hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300"
+                      asChild
+                    >
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        View Credential
                       </a>
                     </Button>
                   </div>
-                ) : null}
+                )}
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
+
+      {/* Certificate Modal */}
+      {selectedCert && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedCert(null)}
+        >
+          <div
+            className="relative max-w-4xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedCert(null)}
+              className="absolute top-4 right-4 z-10 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition-colors"
+              aria-label="Close certificate view"
+            >
+              <X size={20} />
+            </button>
+
+            {selectedCert.endsWith(".pdf") ? (
+              <div className="p-8 text-center">
+                <Award size={64} className="mx-auto mb-4 text-secondary" />
+                <p className="text-lg font-medium mb-4">PDF Certificate</p>
+                <Button asChild className="bg-secondary hover:bg-secondary/90">
+                  <a
+                    href={selectedCert}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink size={16} className="mr-2" />
+                    Open PDF
+                  </a>
+                </Button>
+              </div>
+            ) : (
+              <div className="relative">
+                <Image
+                  src={selectedCert}
+                  alt="Certificate"
+                  width={1200}
+                  height={800}
+                  className="max-w-full h-auto"
+                  priority
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
-  )
+  );
 }
