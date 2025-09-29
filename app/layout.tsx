@@ -23,7 +23,9 @@ export const metadata: Metadata = {
     "Software Architect",
     "DevOps Engineer",
   ],
-  authors: [{ name: "Osamah Alnahari", url: "https://github.com/Lixsr" }],
+  authors: [
+    { name: "Osamah Alnahari", url: "https://github.com/Osamah-Alnahari" },
+  ],
   creator: "Osamah Alnahari",
   openGraph: {
     title: "Osamah Alnahari | AI & Cloud Solutions Engineer",

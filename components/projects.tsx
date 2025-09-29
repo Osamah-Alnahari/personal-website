@@ -86,8 +86,8 @@ export default function Projects() {
         "A platform where undergraduate students can connect and collaborate with students having similar skills, interests, and experience. Led team development with React frontend and Node.js backend.",
       image: "/project-collaboration-platform-interface.jpg",
       technologies: ["React", "Node.js", "Express", "MongoDB"],
-      liveUrl: "https://projectmate-app.vercel.app/",
-      githubUrl: "https://github.com/Lixsr/ProjectMate",
+      liveUrl: "https://projectmate.osamahdev.com/",
+      githubUrl: "https://github.com/Osamah-Alnahari/ProjectMate",
     },
     {
       title: "PC-Market",
@@ -96,7 +96,7 @@ export default function Projects() {
       image: "/pc-components-ecommerce-website.jpg",
       technologies: ["Next.js", "TypeScript", "shadcn/ui", "Prisma", "Jest"],
       liveUrl: "https://pc-market-indol.vercel.app",
-      githubUrl: "https://github.com/Lixsr/PC-Market",
+      githubUrl: "https://github.com/Osamah-Alnahari/PC-Market",
     },
     {
       title: "YelpCamp",
@@ -104,8 +104,8 @@ export default function Projects() {
         "Web application for discovering and reviewing camping sites across Saudi Arabia. Features user authentication, reviews, and interactive maps for campsite locations.",
       image: "/camping-sites-review-website-saudi-arabia.jpg",
       technologies: ["Node.js", "Express", "MongoDB", "Bootstrap"],
-      liveUrl: "https://saudi-yelpcamp.onrender.com/",
-      githubUrl: "https://github.com/Lixsr/YelpCamp",
+      liveUrl: "https://yelpcamp.osamahdev.com/",
+      githubUrl: "https://github.com/Osamah-Alnahari/YelpCamp",
     },
     {
       title: "Computer Graphics Projects",
@@ -114,7 +114,7 @@ export default function Projects() {
       image: "/3d-computer-graphics-java-opengl.jpg",
       technologies: ["Java", "GLSL", "Computer Graphics", "OpenGL"],
       liveUrl: null,
-      githubUrl: "https://github.com/Lixsr/ComputerGraphics-Projects",
+      githubUrl: "https://github.com/Osamah-Alnahari/ComputerGraphics-Projects",
     },
     {
       title: "Reads-Studio",
