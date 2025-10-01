@@ -84,7 +84,7 @@ export default function Projects() {
       title: "ProjectMate",
       description:
         "A platform where undergraduate students can connect and collaborate with students having similar skills, interests, and experience. Led team development with React frontend and Node.js backend.",
-      image: "/project-collaboration-platform-interface.jpg",
+      image: "/ProjectMate.png",
       technologies: ["React", "Node.js", "Express", "MongoDB"],
       liveUrl: "https://projectmate.osamahdev.com/",
       githubUrl: "https://github.com/Osamah-Alnahari/ProjectMate",
@@ -93,16 +93,16 @@ export default function Projects() {
       title: "PC-Market",
       description:
         "E-commerce platform for PC components with responsive UI, admin dashboard, order tracking, email notifications, and secure payments via PayPal and credit cards.",
-      image: "/pc-components-ecommerce-website.jpg",
+      image: "/pc-market.png",
       technologies: ["Next.js", "TypeScript", "shadcn/ui", "Prisma", "Jest"],
-      liveUrl: "https://pc-market-indol.vercel.app",
+      liveUrl: "https://pc-market.osamahdev.com",
       githubUrl: "https://github.com/Osamah-Alnahari/PC-Market",
     },
     {
       title: "YelpCamp",
       description:
         "Web application for discovering and reviewing camping sites across Saudi Arabia. Features user authentication, reviews, and interactive maps for campsite locations.",
-      image: "/camping-sites-review-website-saudi-arabia.jpg",
+      image: "/YelpCamp.png",
       technologies: ["Node.js", "Express", "MongoDB", "Bootstrap"],
       liveUrl: "https://yelpcamp.osamahdev.com/",
       githubUrl: "https://github.com/Osamah-Alnahari/YelpCamp",
@@ -111,25 +111,34 @@ export default function Projects() {
       title: "Computer Graphics Projects",
       description:
         "Collection of computer graphics projects built with Java and GLSL, including 3D rendering, lighting effects, and interactive visualizations demonstrating graphics programming concepts.",
-      image: "/3d-computer-graphics-java-opengl.jpg",
+      image: "/ComputerGraphics.png",
       technologies: ["Java", "GLSL", "Computer Graphics", "OpenGL"],
       liveUrl: null,
       githubUrl: "https://github.com/Osamah-Alnahari/ComputerGraphics-Projects",
     },
     {
-      title: "Reads-Studio",
+      title: "Qader",
       description:
-        "A book platform enabling users to upload books, generate AI-powered summaries, and produce AI-generated illustrative images. Features intelligent content processing and visual storytelling.",
-      image: "/book-reading-platform-with-ai.jpg",
-      technologies: ["Next.js", "AI/ML", "TypeScript", "OpenAI"],
+        "Qader is an innovative educational platform designed to support students preparing for the Qudrat exam. The mission is to empower students as they take meaningful steps toward achieving their academic goals and building a brighter future. I contributed to Qader as part of a collaborative initiative with Niamah Commercial Supply Corporation, working hands-on with Next.js and Django to develop scalable, high-performance solutions for real-world challenges in education. From building robust backend APIs to crafting seamless user interfaces, every step strengthened my technical skills and sharpened my problem-solving mindset.",
+      image: "/Qader.png",
+      technologies: ["Next.js", "shadcn/ui", "Tailwind CSS", "Django", "AI"],
       liveUrl: null,
       githubUrl: null,
     },
     {
-      title: "Aleem (عليم)",
+      title: "Wamdha Studio",
+      description:
+        "A book platform enabling users to upload books, generate AI-powered summaries, and produce AI-generated illustrative images. Features intelligent content processing and visual storytelling.",
+      image: "/Wamdha.png",
+      technologies: ["Next.js", "AI/ML", "TypeScript", "OpenAI"],
+      liveUrl: "https://wamdha.app",
+      githubUrl: "https://github.com/Osamah-Alnahari/wamdha-studio",
+    },
+    {
+      title: "Wamdha",
       description:
         "A Flutter mobile app that allows users to read summarized books with illustrative images, providing an interactive reading experience with AI-generated content and multilingual support.",
-      image: "/mobile-book-reading-app.jpg",
+      image: "/Wamdha.png",
       technologies: ["Flutter", "Mobile", "AI", "Dart"],
       liveUrl: null,
       githubUrl: null,
@@ -215,7 +224,7 @@ export default function Projects() {
                       </div>
                     )}
                     {project.githubUrl && (
-                      <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                      <div className="w-10 h-10 bg-[#24292f] rounded-full flex items-center justify-center border border-white/30">
                         <Github size={16} className="text-white" />
                       </div>
                     )}
@@ -263,10 +272,9 @@ export default function Projects() {
                   )}
                   {project.githubUrl && (
                     <Button
-                      variant="outline"
                       className={`${
                         project.liveUrl ? "flex-1" : "w-full"
-                      } glass-morphism border-border/50 hover:bg-primary/5 hover:border-primary/30 hover:text-primary transition-all duration-300 rounded-xl font-semibold`}
+                      } bg-[#24292f] hover:bg-[#24292f]/90 text-white border-none shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl font-semibold`}
                       asChild
                     >
                       <a

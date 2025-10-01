@@ -144,7 +144,7 @@ export default function HeroProjectsSplit() {
       title: "ProjectMate",
       description:
         "A platform where undergraduate students can connect and collaborate with students having similar skills, interests, and experience.",
-      image: "/images/projectmate.png",
+      image: "/ProjectMate.png",
       technologies: ["React", "Node.js", "Express", "MongoDB"],
       githubLink: "https://github.com/Osamah-Alnahari/ProjectMate",
       demoLink: "https://projectmate.osamahdev.com/",
@@ -153,16 +153,16 @@ export default function HeroProjectsSplit() {
       title: "PC-Market",
       description:
         "A platform where users can buy PC accessories, items, and prebuilt builds.",
-      image: "/images/pc-market.png",
+      image: "/pc-market.png",
       technologies: ["Next.js", "TypeScript", "shadcn/ui", "Prisma"],
       githubLink: "https://github.com/Osamah-Alnahari/PC-Market",
-      demoLink: "https://pc-market-indol.vercel.app",
+      demoLink: "https://pc-market.osamahdev.com/",
     },
     {
       title: "YelpCamp",
       description:
         "A web application for discovering and reviewing camping sites across Saudi Arabia.",
-      image: "/images/yelpcamp.png",
+      image: "/YelpCamp.png",
       technologies: ["Node.js", "Express", "MongoDB", "Bootstrap"],
       githubLink: "https://github.com/Osamah-Alnahari/YelpCamp",
       demoLink: "https://yelpcamp.osamahdev.com/",
@@ -171,23 +171,34 @@ export default function HeroProjectsSplit() {
       title: "Computer Graphics Projects",
       description:
         "Various computer graphics projects built with Java and GLSL.",
-      image: "/images/computer-graphics.jpg",
+      image: "/ComputerGraphics.png",
       technologies: ["Java", "GLSL", "Computer Graphics"],
       githubLink:
         "https://github.com/Osamah-Alnahari/ComputerGraphics-Projects",
     },
     {
-      title: "Reads-Studio",
+      title: "Qader",
       description:
-        "A book platform enabling users to upload books, generate AI-powered summaries, and produce AI-generated illustrative images.",
-      image: "/book-reading-platform-with-ai.jpg",
-      technologies: ["Next.js", "AI/ML", "TypeScript"],
+        "Qader is an innovative educational platform designed to support students preparing for the Qudrat exam. The mission is to empower students as they take meaningful steps toward achieving their academic goals and building a brighter future. I contributed to Qader as part of a collaborative initiative with Niamah Commercial Supply Corporation, working hands-on with Next.js and Django to develop scalable, high-performance solutions for real-world challenges in education. From building robust backend APIs to crafting seamless user interfaces, every step strengthened my technical skills and sharpened my problem-solving mindset.",
+      image: "/Qader.png",
+      technologies: ["Next.js", "shadcn/ui", "Tailwind CSS", "Django", "AI"],
+      githubLink: null,
+      demoLink: null,
     },
     {
-      title: "Aleem (عليم)",
+      title: "Wamdha Studio",
+      description:
+        "A book platform enabling users to upload books, generate AI-powered summaries, and produce AI-generated illustrative images.",
+      image: "/Wamdha.png",
+      technologies: ["Next.js", "AI/ML", "TypeScript"],
+      demoLink: "https://wamdha.app",
+      githubLink: "https://github.com/Osamah-Alnahari/wamdha-studio",
+    },
+    {
+      title: "Wamdha",
       description:
         "A Flutter mobile app that allows users to read summarized books with illustrative images, providing an interactive reading experience.",
-      image: "/mobile-book-reading-app.jpg",
+      image: "/Wamdha.png",
       technologies: ["Flutter", "Mobile", "AI"],
     },
   ];
@@ -236,7 +247,7 @@ export default function HeroProjectsSplit() {
             <div className="space-y-4 lg:space-y-6">
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 3xl:text-7xl 4xl:text-7xl 5xl:text-8xl font-bold text-foreground text-balance">
                 Hi, I'm{" "}
-                <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text">
                   Osamah Alnahari
                 </span>
               </h1>
@@ -396,7 +407,7 @@ export default function HeroProjectsSplit() {
                                 href={project.githubLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center px-3 py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                                className="inline-flex items-center justify-center px-3 py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 bg-[#24292f] text-white hover:bg-[#24292f]/90"
                               >
                                 <Github size={14} className="mr-1 sm:mr-2" />
                                 View Code
@@ -404,7 +415,7 @@ export default function HeroProjectsSplit() {
                             ) : (
                               <span className="inline-flex items-center justify-center px-3 py-2 rounded-md text-xs sm:text-sm font-medium opacity-50 cursor-not-allowed bg-muted text-muted-foreground">
                                 <Github size={14} className="mr-1 sm:mr-2" />
-                                View Code
+                                GitHub
                               </span>
                             )}
                           </div>
@@ -492,7 +503,7 @@ export default function HeroProjectsSplit() {
                                 href={project.githubLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center px-3 py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90"
+                                className="inline-flex items-center justify-center px-3 py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 bg-[#24292f] text-white hover:bg-[#24292f]/90"
                               >
                                 <Github size={14} className="mr-1 sm:mr-2" />
                                 View Code
