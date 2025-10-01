@@ -188,7 +188,9 @@ export default function Projects() {
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  width={400}
+                  height={400}
+                  className="w-[400px] h-[400px] object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 mx-auto"
                 />
                 {project.liveUrl || project.githubUrl ? (
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 flex items-center justify-center">
