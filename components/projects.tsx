@@ -149,7 +149,7 @@ export default function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="py-20 bg-gradient-to-b from-muted/20 via-background to-muted/20 relative overflow-hidden"
+      className="py-10 bg-gradient-to-b from-muted/20 via-background to-muted/20 relative overflow-hidden"
     >
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
@@ -157,38 +157,38 @@ export default function Projects() {
       </div>
 
       <div className="max-w-7xl 3xl:max-w-8xl 4xl:max-w-9xl 5xl:max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20 relative z-10">
-        <div className="text-center mb-12 md:mb-16 3xl:mb-20 4xl:mb-24">
+        <div className="text-center mb-6 md:mb-8 3xl:mb-10 4xl:mb-12">
           <h2
             ref={titleRef}
-            className="text-4xl sm:text-5xl md:text-7xl 3xl:text-8xl 4xl:text-9xl font-bold gradient-text mb-6 text-balance"
+            className="text-3xl sm:text-4xl md:text-6xl 3xl:text-7xl 4xl:text-8xl font-bold gradient-text mb-3 text-balance"
           >
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full mx-auto mb-3"></div>
           <p
             ref={subtitleRef}
-            className="text-lg sm:text-xl md:text-2xl 3xl:text-3xl 4xl:text-4xl text-muted-foreground max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto text-pretty leading-relaxed"
+            className="text-base sm:text-lg md:text-xl 3xl:text-2xl 4xl:text-2xl text-muted-foreground max-w-3xl 3xl:max-w-4xl 4xl:max-w-5xl mx-auto text-pretty leading-relaxed"
           >
             Showcasing innovative solutions in web development, AI integration,
             and software engineering through real-world applications
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 3xl:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 3xl:gap-10">
           {projects.map((project, index) => (
             <Card
               key={index}
               ref={(el) => {
                 if (el) cardsRef.current[index] = el;
               }}
-              className="group overflow-hidden rounded-2xl bg-card/90 backdrop-blur-lg border border-border/30 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:-translate-y-2 hover:scale-[1.02] relative"
+              className="group pt-0 gap-1 overflow-hidden rounded-2xl bg-card/90 backdrop-blur-lg border border-border/30 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:-translate-y-1 hover:scale-[1.01] relative"
             >
-              <div className="relative overflow-hidden rounded-t-2xl">
+              <div className="relative overflow-hidden rounded-t-2xl p-0 m-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full aspect-[4/3] object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                 />
                 {project.liveUrl || project.githubUrl ? (
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 flex items-center justify-center">
@@ -232,13 +232,13 @@ export default function Projects() {
                 </div>
               </div>
 
-              <CardHeader className="pb-4 pt-6">
+              <CardHeader className="pb-2 pt-4">
                 <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
                   {project.title}
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="space-y-5 pb-6">
+              <CardContent className="space-y-3 pb-4">
                 <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 group-hover:text-foreground/80 transition-colors duration-300">
                   {project.description}
                 </p>
@@ -247,14 +247,14 @@ export default function Projects() {
                   {project.technologies.map((tech, techIndex) => (
                     <div
                       key={techIndex}
-                      className="px-3 py-1.5 bg-gradient-to-r from-muted/80 to-muted/60 text-foreground/80 text-xs font-medium rounded-full border border-border/50 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/30 hover:text-primary transition-all duration-300 cursor-default"
+                      className="px-2 py-1 bg-gradient-to-r from-muted/80 to-muted/60 text-foreground/80 text-xs font-medium rounded-full border border-border/50 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/30 hover:text-primary transition-all duration-300 cursor-default"
                     >
                       {tech}
                     </div>
                   ))}
                 </div>
 
-                <div className="flex space-x-3 pt-2">
+                <div className="flex space-x-2 pt-1">
                   {project.liveUrl && (
                     <Button
                       className="flex-1 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 rounded-xl font-semibold"
