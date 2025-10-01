@@ -16,10 +16,10 @@ export default function Skills() {
       title: "AI & Machine Learning",
       icon: <Brain className="w-6 h-6" />,
       skills: [
-        { name: "Python/PyTorch", level: 88 },
-        { name: "TensorFlow/Keras", level: 82 },
-        { name: "Hugging Face", level: 85 },
-        { name: "LangChain", level: 80 },
+        { name: "Python", level: 88 },
+        { name: "PyTorch", level: 82 },
+        { name: "Hugging Face", level: 70 },
+        { name: "SageMaker", level: 85 },
         { name: "OpenAI APIs", level: 90 },
       ],
     },
@@ -28,10 +28,10 @@ export default function Skills() {
       icon: <Cloud className="w-6 h-6" />,
       skills: [
         { name: "AWS Services", level: 85 },
-        { name: "Docker/Kubernetes", level: 82 },
+        { name: "S3", level: 82 },
         { name: "Serverless/Lambda", level: 88 },
         { name: "CI/CD Pipelines", level: 80 },
-        { name: "Microservices", level: 78 },
+        { name: "EC2", level: 85 },
       ],
     },
     {
@@ -41,7 +41,7 @@ export default function Skills() {
         { name: "React/Next.js", level: 92 },
         { name: "TypeScript", level: 88 },
         { name: "Node.js/Express", level: 85 },
-        { name: "Tailwind CSS", level: 90 },
+        { name: "Tailwind CSS", level: 85 },
         { name: "GraphQL/REST", level: 82 },
       ],
     },
@@ -49,10 +49,10 @@ export default function Skills() {
       title: "Data & Analytics",
       icon: <Database className="w-6 h-6" />,
       skills: [
-        { name: "PostgreSQL/MongoDB", level: 85 },
-        { name: "Redis/Caching", level: 80 },
+        { name: "SQL/NoSQL", level: 85 },
+        { name: "Caching", level: 80 },
         { name: "Data Pipelines", level: 78 },
-        { name: "Vector Databases", level: 75 },
+        { name: "Excel", level: 85 },
         { name: "Analytics/Monitoring", level: 82 },
       ],
     },
@@ -87,14 +87,18 @@ export default function Skills() {
         stagger: 0.3,
       });
 
-      // Animate skill bars
+      // Animate skill bars with mapped width based on label
       skillCategories.forEach((category, categoryIndex) => {
         category.skills.forEach((skill, skillIndex) => {
+          let width = 70;
+          if (skill.level >= 90) width = 95; // Expert
+          else if (skill.level >= 80) width = 85; // Advanced
+          // else Intermediate (default 70)
           gsap.fromTo(
             `.skill-bar-${categoryIndex}-${skillIndex}`,
             { width: "0%" },
             {
-              width: `${skill.level}%`,
+              width: `${width}%`,
               duration: 1.5,
               ease: "power2.out",
               scrollTrigger: {
@@ -178,7 +182,11 @@ export default function Skills() {
                         {skill.name}
                       </span>
                       <span className="text-xs sm:text-sm 3xl:text-base 4xl:text-lg text-muted-foreground">
-                        {skill.level}%
+                        {skill.level >= 90
+                          ? "Expert"
+                          : skill.level >= 80
+                          ? "Advanced"
+                          : "Intermediate"}
                       </span>
                     </div>
                     <div className="w-full bg-muted/50 rounded-full h-3 3xl:h-4 4xl:h-5 shadow-inner">

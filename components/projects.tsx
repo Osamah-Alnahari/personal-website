@@ -66,8 +66,8 @@ export default function Projects() {
               y: 0,
               opacity: 1,
               scale: 1,
-              duration: 0.5,
-              delay: index * 0.1,
+              duration: 0.25,
+              delay: index * 0.03,
               ease: "power2.out",
               scrollTrigger: { trigger: card, start: "top 95%" },
             }
@@ -122,7 +122,7 @@ export default function Projects() {
         "Qader is an innovative educational platform designed to support students preparing for the Qudrat exam. The mission is to empower students as they take meaningful steps toward achieving their academic goals and building a brighter future. I contributed to Qader as part of a collaborative initiative with Niamah Commercial Supply Corporation, working hands-on with Next.js and Django to develop scalable, high-performance solutions for real-world challenges in education. From building robust backend APIs to crafting seamless user interfaces, every step strengthened my technical skills and sharpened my problem-solving mindset.",
       image: "/Qader.png",
       technologies: ["Next.js", "shadcn/ui", "Tailwind CSS", "Django", "AI"],
-      liveUrl: null,
+      liveUrl: "https://qader.vip",
       githubUrl: null,
     },
     {
@@ -213,11 +213,6 @@ export default function Projects() {
                     </div>
                   </div>
                 )}
-                <div className="absolute top-4 right-4 z-30">
-                  <div className="bg-gradient-to-r from-primary to-secondary px-3 py-1 rounded-full text-white text-xs font-semibold shadow-lg">
-                    Featured
-                  </div>
-                </div>
                 <div className="absolute bottom-4 left-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="flex space-x-2">
                     {project.liveUrl && (

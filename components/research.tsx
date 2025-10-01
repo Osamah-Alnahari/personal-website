@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const researchProjects = [
   {
-    title: "Arabic Dialect Text Sentiment Transfer using Large Language Models",
+    title: "Document-Level Translation from Egyptian Dialect to MSA Using LLMs",
     organization: "JRCAI",
-    period: "Feb 2025 — CURRENT",
+    period: "Nov 2024 — Feb 2025",
     description: [
-      "Conducted research to evaluate the performance of large language models on Arabic NLP tasks.",
-      "Collaborated with faculty to design experiments and analyze results to assess the models' effectiveness.",
+      "Improved DeepSeek translation accuracy by 24% (BLEU score) and analyzed multiple LLMs to identify strengths and weaknesses in dialectal Arabic translation.",
+      "Developed a novel Egy-MSA parallel dataset with 300 manually translated documents and an 837-word Egyptian–MSA dictionary and applied linguistic rules to ensure consistency and high-quality.",
     ],
   },
   {
@@ -29,27 +29,31 @@ const researchProjects = [
     title: "Continuous Saudi Sign Language Dataset Development",
     organization: "JRCAI",
     period: "Jul 2024 — Aug 2024",
-    description: ["Dataset preparation and verification."],
+    description: [
+      "Collected, annotated, and verified videos of Saudi Sign Language gestures, ensuring accurate labeling and consistency for machine learning use.",
+    ],
   },
   {
     title: "Showcase/MVP of Personal Protective Equipment (PPE)",
     organization: "JRCAI",
-    period: "xxx 202x — xx 202x",
-    description: ["Dataset preparation."],
+    period: "2023 — 2023",
+    description: [
+      "Curated and preprocessed images of PPE usage, maintaining quality and standardization for model training.",
+    ],
   },
-]
+];
 
 export default function Research() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const projectsRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const section = sectionRef.current
-    const title = titleRef.current
-    const projects = projectsRef.current
+    const section = sectionRef.current;
+    const title = titleRef.current;
+    const projects = projectsRef.current;
 
-    if (!section || !title || !projects) return
+    if (!section || !title || !projects) return;
 
     // Title animation
     gsap.fromTo(
@@ -69,11 +73,11 @@ export default function Research() {
           end: "bottom 20%",
           toggleActions: "play none none reverse",
         },
-      },
-    )
+      }
+    );
 
     // Projects stagger animation
-    const projectCards = projects.querySelectorAll(".research-project")
+    const projectCards = projects.querySelectorAll(".research-project");
     gsap.fromTo(
       projectCards,
       {
@@ -94,13 +98,13 @@ export default function Research() {
           end: "bottom 20%",
           toggleActions: "play none none reverse",
         },
-      },
-    )
+      }
+    );
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <section
@@ -130,7 +134,9 @@ export default function Research() {
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
                       {project.organization}
                     </span>
-                    <span className="text-sm text-muted-foreground font-mono">{project.period}</span>
+                    <span className="text-sm text-muted-foreground font-mono">
+                      {project.period}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -139,7 +145,9 @@ export default function Research() {
                 {project.description.map((desc, descIndex) => (
                   <div key={descIndex} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 flex-shrink-0"></div>
-                    <p className="text-muted-foreground leading-relaxed">{desc}</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {desc}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -148,5 +156,5 @@ export default function Research() {
         </div>
       </div>
     </section>
-  )
+  );
 }
