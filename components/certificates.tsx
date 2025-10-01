@@ -61,9 +61,9 @@ export default function Certificates() {
             y: 0,
             opacity: 1,
             scale: 1,
-            duration: 0.7,
+            duration: 0.3,
             ease: "power3.out",
-            delay: i * 0.12,
+            delay: 0,
             scrollTrigger: { trigger: el, start: "top 85%" },
           }
         );
