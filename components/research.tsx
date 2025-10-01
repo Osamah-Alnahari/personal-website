@@ -89,7 +89,7 @@ export default function Research() {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.8,
+        duration: 0.3,
         ease: "power3.out",
         stagger: 0.2,
         scrollTrigger: {
