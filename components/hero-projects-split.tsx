@@ -334,7 +334,7 @@ export default function HeroProjectsSplit() {
           >
             <div className="space-y-4 sm:space-y-6 md:space-y-8 3xl:space-y-12 4xl:space-y-16 w-auto self-stretch bg-transparent rounded-2xl sm:rounded-3xl p-4 border-0 shadow-none hover:shadow-none hover:border-transparent transition-all duration-500">
               <div
-                className="overflow-hidden w-full rounded-xl sm:rounded-2xl"
+                className="overflow-hidden w-full rounded-xl sm:rounded-2xl p-4"
                 onMouseEnter={handleFirstRowMouseEnter}
                 onMouseLeave={handleFirstRowMouseLeave}
               >
@@ -427,7 +427,7 @@ export default function HeroProjectsSplit() {
               </div>
 
               <div
-                className="overflow-hidden w-full rounded-xl sm:rounded-2xl"
+                className="overflow-hidden w-full rounded-xl sm:rounded-2xl p-4"
                 onMouseEnter={handleSecondRowMouseEnter}
                 onMouseLeave={handleSecondRowMouseLeave}
               >
