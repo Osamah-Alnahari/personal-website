@@ -238,8 +238,8 @@ export default function HeroProjectsSplit() {
         />
       </div>
 
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20 w-full relative z-10">
-        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-8 lg:gap-16 3xl:gap-20 4xl:gap-24 5xl:gap-28 items-center min-h-[80vh] my-0 h-96 w-full self-stretch">
+      <div className="max-w-[2560px] 2xl:max-w-[1920px] 3xl:max-w-[2560px] 4xl:max-w-[3840px] 5xl:max-w-[5120px] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20 w-full relative z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-8 lg:gap-16 3xl:gap-20 4xl:gap-32 5xl:gap-40 items-center min-h-[80vh] my-0 h-96 w-full self-stretch">
           <div
             ref={leftSideRef}
             className="space-y-6 lg:space-y-8 lg:col-span-2 text-center lg:text-left pl-[30px]"
