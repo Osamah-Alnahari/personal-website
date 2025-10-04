@@ -239,7 +239,7 @@ export default function HeroProjectsSplit() {
       </div>
 
       <div className="max-w-[2560px] 2xl:max-w-[1920px] 3xl:max-w-[2560px] 4xl:max-w-[3840px] 5xl:max-w-[5120px] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20 w-full relative z-10">
-        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-8 lg:gap-16 3xl:gap-20 4xl:gap-32 5xl:gap-40 items-center min-h-[80vh] my-0 h-96 w-full self-stretch">
+        <div className="flex flex-col lg:grid lg:grid-cols-6 gap-8 lg:gap-12 3xl:gap-16 4xl:gap-20 5xl:gap-24 items-center min-h-[80vh] my-0 h-96 w-full self-stretch">
           <div
             ref={leftSideRef}
             className="space-y-6 lg:space-y-8 lg:col-span-2 text-center lg:text-left pl-[30px]"
@@ -330,11 +330,11 @@ export default function HeroProjectsSplit() {
 
           <div
             ref={rightSideRef}
-            className="space-y-4 sm:space-y-6 lg:space-y-8 w-full max-w-none lg:col-span-3"
+            className="space-y-4 sm:space-y-6 lg:space-y-8 w-full max-w-none lg:col-span-4"
           >
             <div className="space-y-4 sm:space-y-6 md:space-y-8 3xl:space-y-12 4xl:space-y-16 w-auto self-stretch bg-transparent rounded-2xl sm:rounded-3xl p-4 border-0 shadow-none hover:shadow-none hover:border-transparent transition-all duration-500">
               <div
-                className="overflow-hidden w-full rounded-xl sm:rounded-2xl p-4"
+                className="overflow-hidden w-full rounded-xl sm:rounded-2xl pb-3 relative"
                 onMouseEnter={handleFirstRowMouseEnter}
                 onMouseLeave={handleFirstRowMouseLeave}
               >
@@ -345,7 +345,7 @@ export default function HeroProjectsSplit() {
                   {[...allProjects, ...allProjects].map((project, index) => (
                     <div
                       key={`row1-${index}`}
-                      className="bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 3xl:p-10 4xl:p-12 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[320px] xs:w-[360px] sm:w-[420px] md:w-[480px] lg:w-[560px] xl:w-[620px] 2xl:w-[680px] 3xl:w-[760px] 4xl:w-[820px] 5xl:w-[880px] ring-0 hover:ring hover:ring-primary/20 hover:-translate-y-0.5"
+                      className="bg-gradient-to-br from-primary/20 via-accent/15 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 3xl:p-10 4xl:p-12 cursor-pointer group flex-shrink-0 w-[320px] xs:w-[360px] sm:w-[420px] md:w-[480px] lg:w-[560px] xl:w-[620px] 2xl:w-[680px] 3xl:w-[760px] 4xl:w-[820px] 5xl:w-[880px] transition-all duration-700 ease-out hover:border-primary/50 hover:rounded-3xl hover:scale-95 hover:-translate-y-1"
                     >
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8 3xl:gap-10 4xl:gap-12">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
@@ -427,7 +427,7 @@ export default function HeroProjectsSplit() {
               </div>
 
               <div
-                className="overflow-hidden w-full rounded-xl sm:rounded-2xl p-4"
+                className="overflow-hidden w-full rounded-xl sm:rounded-2xl pt-3 relative"
                 onMouseEnter={handleSecondRowMouseEnter}
                 onMouseLeave={handleSecondRowMouseLeave}
               >
@@ -441,7 +441,7 @@ export default function HeroProjectsSplit() {
                   ].map((project, index) => (
                     <div
                       key={`row2-${index}`}
-                      className="bg-gradient-to-br from-secondary/20 via-accent/15 to-primary/20 backdrop-blur-sm border border-secondary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/20 transition-all duration-300 cursor-pointer group flex-shrink-0 w-[320px] xs:w-[360px] sm:w-[420px] md:w-[480px] lg:w-[560px] xl:w-[620px] 2xl:w-[680px] 3xl:w-[760px] 4xl:w-[820px] 5xl:w-[880px] ring-0 hover:ring hover:ring-secondary/20 hover:-translate-y-0.5"
+                      className="bg-gradient-to-br from-secondary/20 via-accent/15 to-primary/20 backdrop-blur-sm border border-secondary/30 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 cursor-pointer group flex-shrink-0 w-[320px] xs:w-[360px] sm:w-[420px] md:w-[480px] lg:w-[560px] xl:w-[620px] 2xl:w-[680px] 3xl:w-[760px] 4xl:w-[820px] 5xl:w-[880px] transition-all duration-700 ease-out hover:border-secondary/50 hover:rounded-3xl hover:scale-95 hover:-translate-y-1"
                     >
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8">
                         <div className="flex-shrink-0 mx-auto sm:mx-0">
