@@ -108,6 +108,7 @@ export default function Research() {
 
   return (
     <section
+      id="research"
       ref={sectionRef}
       className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-muted/20"
     >

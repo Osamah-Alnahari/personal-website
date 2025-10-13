@@ -8,8 +8,10 @@ import { gsap } from "gsap";
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
+  { name: "Research", href: "#research" },
   { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Certificates", href: "#certificates" },
   { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
@@ -69,8 +71,16 @@ export default function Navigation() {
   };
 
   const handleDownloadResume = () => {
-    // Add your resume download logic here
-    console.log("Downloading resume...");
+    // Create an invisible anchor to download the CV from the public folder
+    const href = "/Osamah_Alnahari_CV.pdf";
+    const fileName = "Osamah_Alnahari_CV";
+    const a = document.createElement("a");
+    a.href = href;
+    a.setAttribute("download", fileName);
+    // For cross-browser safety, append to body
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   };
 
   return (
@@ -117,7 +127,7 @@ export default function Navigation() {
               className="ml-4 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/30 text-primary hover:from-primary/10 hover:to-secondary/10 hover:border-primary/50 hover:shadow-md transition-all duration-300 hover-lift"
             >
               <Download size={16} className="mr-2" />
-              Resume
+              CV
             </Button>
           </div>
 
@@ -152,7 +162,7 @@ export default function Navigation() {
                 className="w-full mt-4 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/30 text-primary hover:from-primary/10 hover:to-secondary/10 hover:border-primary/50 transition-all duration-300"
               >
                 <Download size={16} className="mr-2" />
-                Download Resume
+                Download CV
               </Button>
             </div>
           </div>
