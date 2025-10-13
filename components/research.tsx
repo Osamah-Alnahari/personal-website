@@ -8,17 +8,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const researchProjects = [
   {
-    title: "Document-Level Translation from Egyptian Dialect to MSA Using LLMs",
-    organization: "JRCAI",
-    period: "Nov 2024 — Feb 2025",
+    title: "Arabic Dialect Text Sentiment Transfer using Large Language Models",
+    organization: "Research Assistant, JRCAI",
+    period: "In Progress",
     description: [
-      "Improved DeepSeek translation accuracy by 24% (BLEU score) and analyzed multiple LLMs to identify strengths and weaknesses in dialectal Arabic translation.",
-      "Developed a novel Egy-MSA parallel dataset with 300 manually translated documents and an 837-word Egyptian–MSA dictionary and applied linguistic rules to ensure consistency and high-quality.",
+      "In progress: developing sentiment transfer models for Arabic dialect text.",
     ],
   },
   {
     title: "Document-Level Translation from Egyptian Dialect to MSA Using LLMs",
-    organization: "JRCAI",
+    organization: "Research Assistant, JRCAI",
     period: "Nov 2024 — Feb 2025",
     description: [
       "Improved DeepSeek translation accuracy by 24% (BLEU score) and analyzed multiple LLMs to identify strengths and weaknesses in dialectal Arabic translation.",
@@ -27,7 +26,7 @@ const researchProjects = [
   },
   {
     title: "Continuous Saudi Sign Language Dataset Development",
-    organization: "JRCAI",
+    organization: "Research Assistant, JRCAI",
     period: "Jul 2024 — Aug 2024",
     description: [
       "Collected, annotated, and verified videos of Saudi Sign Language gestures, ensuring accurate labeling and consistency for machine learning use.",
@@ -35,7 +34,7 @@ const researchProjects = [
   },
   {
     title: "Showcase/MVP of Personal Protective Equipment (PPE)",
-    organization: "JRCAI",
+    organization: "Research Assistant, JRCAI",
     period: "2023 — 2023",
     description: [
       "Curated and preprocessed images of PPE usage, maintaining quality and standardization for model training.",

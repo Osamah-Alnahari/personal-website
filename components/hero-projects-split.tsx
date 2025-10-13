@@ -183,7 +183,7 @@ export default function HeroProjectsSplit() {
       image: "/Qader.png",
       technologies: ["Next.js", "shadcn/ui", "Tailwind CSS", "Django", "AI"],
       githubLink: null,
-      demoLink: null,
+      demoLink: "https://qader.vip",
     },
     {
       title: "Wamdha Studio",

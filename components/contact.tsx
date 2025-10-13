@@ -16,11 +16,36 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xzzjkrrn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -175,14 +200,28 @@ export default function Contact() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 h-12 sm:h-14 3xl:h-16 4xl:h-18 text-sm sm:text-base 3xl:text-lg 4xl:text-xl"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary hover:bg-primary/90 disabled:opacity-50 h-12 sm:h-14 3xl:h-16 4xl:h-18 text-sm sm:text-base 3xl:text-lg 4xl:text-xl"
                 >
                   <Send
                     size={16}
                     className="sm:w-5 sm:h-5 3xl:w-6 3xl:h-6 4xl:w-7 4xl:h-7 mr-2 3xl:mr-3"
                   />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
+
+                {submitStatus === "success" && (
+                  <div className="text-green-600 text-center text-sm sm:text-base">
+                    ✓ Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+
+                {submitStatus === "error" && (
+                  <div className="text-red-600 text-center text-sm sm:text-base">
+                    ✗ Failed to send message. Please try again or email me
+                    directly.
+                  </div>
+                )}
               </form>
             </CardContent>
           </Card>

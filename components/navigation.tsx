@@ -87,49 +87,52 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
         scrolled
-          ? "glass-morphism professional-shadow border-b border-border/20"
-          : "bg-background/5 backdrop-blur-sm"
+          ? "glass-morphism professional-shadow border-b border-border/30 bg-background/20"
+          : "bg-background/15 backdrop-blur-md border-b border-border/10"
       }`}
       style={{
         backdropFilter: scrolled
-          ? "blur(20px) saturate(180%)"
-          : "blur(10px) saturate(120%)",
+          ? "blur(25px) saturate(200%)"
+          : "blur(15px) saturate(140%)",
         WebkitBackdropFilter: scrolled
-          ? "blur(20px) saturate(180%)"
-          : "blur(10px) saturate(120%)",
+          ? "blur(25px) saturate(200%)"
+          : "blur(15px) saturate(140%)",
       }}
     >
-      <div className="relative max-w-7xl 3xl:max-w-8xl 4xl:max-w-9xl 5xl:max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 5xl:px-20">
-        <div className="flex justify-between items-center py-4 3xl:py-6 4xl:py-8">
+      <div className="relative w-[70%] mx-auto px-6 sm:px-8 lg:px-12 3xl:px-16 4xl:px-20 5xl:px-24">
+        <div className="flex justify-between items-center py-3 3xl:py-4 4xl:py-5">
+          {/* Left: Portfolio */}
           <div className="text-xl sm:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold gradient-text">
             Portfolio
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 3xl:space-x-12 4xl:space-x-16">
+          {/* Center: Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8 3xl:space-x-10 4xl:space-x-12">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-sm lg:text-base 3xl:text-lg 4xl:text-xl px-4 py-2 rounded-xl transition-all duration-300 font-medium relative ${
+                className={`text-sm lg:text-base 3xl:text-lg 4xl:text-xl px-5 py-2.5 rounded-xl transition-all duration-300 font-medium relative ${
                   active === item.href
-                    ? "text-primary bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 shadow-md"
-                    : "text-foreground hover:text-primary hover:bg-gradient-to-r hover:from-primary/5 hover:via-transparent hover:to-primary/5 hover:shadow-sm"
+                    ? "text-primary bg-gradient-to-r from-primary/15 via-primary/10 to-primary/15 shadow-lg border border-primary/20"
+                    : "text-foreground hover:text-primary hover:bg-gradient-to-r hover:from-primary/8 hover:via-primary/4 hover:to-primary/8 hover:shadow-md hover:border hover:border-primary/10"
                 }`}
               >
                 {item.name}
               </button>
             ))}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleDownloadResume}
-              className="ml-4 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/30 text-primary hover:from-primary/10 hover:to-secondary/10 hover:border-primary/50 hover:shadow-md transition-all duration-300 hover-lift"
-            >
-              <Download size={16} className="mr-2" />
-              CV
-            </Button>
           </div>
+
+          {/* Right: CV Download Button */}
+          <Button
+            variant="outline"
+            size="default"
+            onClick={handleDownloadResume}
+            className="hidden md:flex items-center justify-center whitespace-nowrap px-6 py-2.5 text-sm font-medium bg-gradient-to-r from-primary/8 to-secondary/8 border-primary/40 text-primary hover:from-primary/15 hover:to-secondary/15 hover:border-primary/60 hover:shadow-lg transition-all duration-300 hover-lift"
+          >
+            <Download size={16} className="mr-2" />
+            Download CV
+          </Button>
 
           {/* Mobile Navigation Toggle */}
           <Button
